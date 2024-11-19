@@ -12,7 +12,7 @@ contract DataStorageContract {
         bytes publicKey;
         string dataType;
         uint256 expiryDate;
-        bytes encryptedData;
+        string encryptedData;
     }
 
     DataEntry[] public dataEntries;
@@ -33,7 +33,7 @@ contract DataStorageContract {
         bytes memory publicKey,
         string memory dataType,
         uint256 expiryDate,
-        bytes memory encryptedData
+        string memory encryptedData
     ) public {
         require(accessControl.isBank(msg.sender), "Only bank can store data");
         require(accessControl.isRegisteredUser(userAddress), "Invalid user");

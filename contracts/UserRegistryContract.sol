@@ -8,8 +8,8 @@ contract UserRegistryContract {
     
     struct User {
         bytes publicKey;
-        bytes fhePublicKey;
-        bytes serverKey;
+        string fhePublicKey;
+        string serverKey;
         uint256 id;
         bool isActive;
     }
@@ -26,8 +26,8 @@ contract UserRegistryContract {
 
     function registerUser(
         bytes memory publicKey,
-        bytes memory fhePublicKey,
-        bytes memory serverKey
+        string memory fhePublicKey,
+        string memory serverKey
     ) public {
         require(!users[msg.sender].isActive, "User already registered");
         
