@@ -9,7 +9,6 @@ contract DataStorageContract {
     struct DataEntry {
         address userAddress;
         address bankAddress;
-        bytes publicKey;
         string dataType;
         uint256 expiryDate;
         string encryptedData;
@@ -30,7 +29,6 @@ contract DataStorageContract {
 
     function storeUserData(
         address userAddress,
-        bytes memory publicKey,
         string memory dataType,
         uint256 expiryDate,
         string memory encryptedData
@@ -42,7 +40,6 @@ contract DataStorageContract {
         dataEntries.push(DataEntry(
             userAddress,
             msg.sender,
-            publicKey,
             dataType,
             expiryDate,
             encryptedData
